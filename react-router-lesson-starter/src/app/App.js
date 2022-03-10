@@ -8,7 +8,7 @@ import Article from "../components/Article";
 import Categories from "../components/Categories";
 import Author from "../components/Author";
 import Profile from "../components/Profile";
-import { BrowserRouter as Router, Route, Link, NavLink} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -16,15 +16,19 @@ function App() {
   return (
     <Router>
       <Header />
+      <Switch>
       <main>
         {/* Add Routes here! */}
-        <Route path='/about'>
-          
+        <Route path='/articles/:title'>
+          <Article />
         </Route>
-        <Route path='/signup'>
+        <Route path='/about'>
           <About />
         </Route>
-        <Route path='/articles/:title'>
+        <Route path='/sign-up'>
+          <SignUp />
+        </Route>
+        <Route path='/articles'>
           <Articles />
         </Route>
         <Route path='/categories'>
@@ -37,6 +41,7 @@ function App() {
           <Author />
         </Route>
       </main>
+      </Switch>
       <Footer />
     </Router>
   );

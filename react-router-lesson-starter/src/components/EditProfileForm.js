@@ -9,6 +9,7 @@ export default function EditProfileForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(editUser({ username: username }));
+    setUsername('');
   };
 
   return (
