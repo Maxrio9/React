@@ -9,6 +9,8 @@ function App() {
   Define state variables for 
   contacts and appointments 
   */
+  const [contacts, setContacts] = React.useState([]);
+  const [appointments, setAppointments] = React.useState([]);
 
   const ROUTES = {
     CONTACTS: "/contacts",
@@ -19,6 +21,24 @@ function App() {
   Implement functions to add data to
   contacts and appointments
   */
+  const addContact = (name, number, email) => {
+    const obj = {
+      name: name,
+      number: number,
+      email: email
+    };
+    setContacts([...contacts, obj]);
+  };
+
+  const addAppointment = (title, contact, date, time) => {
+    const obj = {
+      title: title,
+      contact: contact,
+      date: date,
+      time: time
+    };
+    setAppointments([...appointments, obj]);
+  };
 
   return (
     <>
@@ -37,11 +57,11 @@ function App() {
           </Route>
           <Route path={ROUTES.CONTACTS}>
              {/* Add props to ContactsPage */}
-            <ContactsPage />
+            <ContactsPage addContact={addContact} contacts={contacts}/>
           </Route>
           <Route path={ROUTES.APPOINTMENTS}>
             {/* Add props to AppointmentsPage */}
-            <AppointmentsPage />
+            <AppointmentsPage addAppointment={addAppointment} appointments={appointments}/>
           </Route>
         </Switch>
       </main>
