@@ -10,9 +10,9 @@ export const ContactsPage = (props) => {
   const contacts = props.contacts;
   const addContact = props.addContact;
 
-  const [name, setName] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  // const [name, setName] = React.useState("");
+  // const [phone, setPhone] = React.useState("");
+  // const [email, setEmail] = React.useState("");
 
   const [contactInfo, setContactInfo] = React.useState({
     name: "",
