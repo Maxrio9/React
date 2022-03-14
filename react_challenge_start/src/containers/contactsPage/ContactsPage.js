@@ -31,8 +31,12 @@ export const ContactsPage = (props) => {
       number: e.target.phone.value,
       email: e.target.email.value
     });
+    e.target.name.value = '';
+    e.target.phone.value = '';
+    e.target.email.value = '';
     if (contactInfo.name.length > 0 && !contacts.some((contact) => contact.name === contactInfo.name)) {
       addContact(contactInfo.name, contactInfo.number, contactInfo.email);
+      alert('Contact Added');
       setContactInfo({
         name: "",
         number: "",
@@ -50,7 +54,7 @@ export const ContactsPage = (props) => {
     <div>
       <section>
         <h2>Add Contact</h2>
-        <ContactForm onSubmit={handleSubmit} contactInfo={contactInfo} setContactInfo={setContactInfo}/>
+        <ContactForm handleSubmit={handleSubmit} contactInfo={contactInfo} setContactInfo={setContactInfo}/>
       </section>
       <hr />
       <section>

@@ -5,17 +5,17 @@ export const Tile = (props) => {
   const appointment = props.appointment;
 
   return contact ? (
-    <div className="tile-container">
-      <h2>Name: {contact.name}</h2>
-      <h2>Phone Number: {contact.phone}</h2>
-      <h2>Email: {contact.email}</h2>
-    </div>
+    <li className="tile-container">
+      <p className='tile-title'>Name: {contact.name}</p>
+      <p className='tile'>Phone Number: {contact.phone}</p>
+      <p className='tile'>Email: {contact.email}</p>
+    </li>
   ) : (
-    <div className="tile-container">
-      <p>Title: {appointment.title}</p>
-      <p>Contact: {appointment.contact}</p>
-      <p>Date: {appointment.date}</p>
-      <p>Time: {appointment.time}</p>
-    </div>
+    <li className="tile-container">
+      <p className='tile-title'>Title: {appointment.title}</p>
+      <p className='tile'>Contact: {appointment.contact}</p>
+      <p className='tile'>Date: {appointment.date}</p>
+      <p className='tile'>Time: {appointment.time}</p>
+    </li>
   );
 };

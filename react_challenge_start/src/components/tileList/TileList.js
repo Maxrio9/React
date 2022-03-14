@@ -6,12 +6,12 @@ export const TileList = (props) => {
   const appointments = props.appointments;
 
   return (
-    <div>
+    <ul>
       {contacts ? contacts.map((contact) => {
         return <Tile contact={contact} />
       }) : appointments.map((appointment) => {
         return <Tile appointment={appointment} />
       })};
-    </div>
+    </ul>
   );
 };
