@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  createCommentIsPending,
+  createCommentIsPending, postCommentForArticleId
 } from '../features/comments/commentsSlice';
 
 export default function CommentForm({ articleId }) {
@@ -9,10 +9,12 @@ export default function CommentForm({ articleId }) {
   const [comment, setComment] = useState('');
   
   // Declare isCreatePending here.
+  const isCreatePending = useSelector(createCommentIsPending);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // dispatch your asynchronous action here!
+    dispatch(postCommentForArticleId({articleId: e.target.articleId, comment: e.target.comment}));
     setComment('');
   };
 
@@ -29,7 +31,7 @@ export default function CommentForm({ articleId }) {
           type='text'
         />
         <button
-          
+          disabled={isCreatePending}
           className='comment-button'
         >
           Submit

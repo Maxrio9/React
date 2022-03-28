@@ -18,7 +18,7 @@ const Comments = () => {
 
   // Dispatch loadCommentsForArticleId with useEffect here.
   useEffect(() => {
-    dispatch(loadCommentsForArticleId()(article.id));
+    dispatch(loadCommentsForArticleId());
   }, [article, dispatch]);
   const commentsForArticleId = (article) ? comments[article.id] : [];
 
