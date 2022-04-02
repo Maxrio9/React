@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import budgetsSlice from '../../../../Redux_Toolkit_Budget/features/budgets/budgetsSlice';
 
 const topicsSlice = createSlice({
     name: 'topics',
@@ -16,3 +17,4 @@ const topicsSlice = createSlice({
 });
 
 export const selectTopic = (state) => state.topics;
+export default budgetsSlice.reducers;
