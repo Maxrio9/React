@@ -9,7 +9,8 @@ const topicsSlice = createSlice({
     reducers: {
         addTopic: (state, action) => {
             state.topics[action.payload.id] = ({
-                ...action.payload,
+                name: action.payload.name,
+                icon: action.payload.icon,
                 quizIds: []
             });
         }
